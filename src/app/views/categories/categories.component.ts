@@ -14,13 +14,14 @@ export class CategoriesComponent implements OnInit {
   constructor(private dataHandler: DataHandlerService) { }
 
   ngOnInit(): void {
-    this.categories = this.dataHandler.getCategories();
-    console.log(this.categories);
+    //this.categories = this.dataHandler.getCategories();
+    this.dataHandler.categoriesSubject.subscribe(categories => this.categories = categories);
+    //console.log(this.categories);
   }
 
   showTasksByCategory(category: Category) {
-      console.log(category)
-      this.dataHandler.getTasksByCategory(category);
+      //console.log(category)
+      this.dataHandler.fillTasksByCategory(category);
   }
 
 }
