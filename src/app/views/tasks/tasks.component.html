@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header card-header-warning">
+    <h4 class="card-title">Список задач</h4>
+    <p class="card-category">Мои ближайшие планы и задачи</p>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-hover">
+      <thead class="text-warning">
+        <tr>
+          <th>Заголовок</th>
+          <th>Стутус</th>
+          <th>Категория</th>
+          <th>Дата</th>
+      </tr></thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td> {{ task.title }}</td>
+          <td> {{ (task.completed)?'Да':'Нет' }}</td>
+          <td> {{ (task.category)?task.category.title:'' }}</td>
+          <td> {{ task.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
